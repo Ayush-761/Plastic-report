@@ -15,7 +15,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:transparent;color:var(--text);font-size:15px;line-height:1.8;cursor:none;overflow-x:hidden}
+body{font-family:'DM Sans',sans-serif;background:#f0f0f0;color:var(--text);font-size:15px;line-height:1.8;cursor:none;overflow-x:hidden}
 
 /* CUSTOM CURSOR */
 #cursor{position:fixed;width:12px;height:12px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s;mix-blend-mode:multiply}
@@ -283,14 +283,6 @@ a.hl:hover{color:var(--a2);border-bottom-color:var(--a2)}
 .chart-toggle.active{background:var(--accent);color:#fff}
 .chart-toggle:hover:not(.active){background:var(--lg);color:var(--accent)}
 
-/* FLOATING QUICK NAV */
-#quickNav{position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:250;display:flex;flex-direction:column;gap:6px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:30px;padding:10px 8px;box-shadow:0 4px 24px rgba(0,0,0,.08)}
-.qn-item{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;cursor:pointer;transition:all .18s;border:none;background:transparent;position:relative}
-.qn-item:hover,.qn-item.active{background:var(--accent);color:#fff;transform:scale(1.1)}
-.qn-item .qn-tip{position:absolute;right:42px;background:#1a1a1a;color:#fff;font-size:11px;padding:4px 10px;border-radius:5px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s;font-family:'DM Sans',sans-serif;font-weight:500}
-.qn-item:hover .qn-tip{opacity:1}
-@media(max-width:800px){#quickNav{display:none}}
-
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{
@@ -368,17 +360,6 @@ a.hl:hover{color:var(--a2);border-bottom-color:var(--a2)}
 <div id="cursor-ring"></div>
 <div class="np" id="np"></div>
 
-<!-- FLOATING QUICK NAV -->
-<div id="quickNav">
-  <button class="qn-item" onclick="location.href='#waste'" title="Waste Data"><span class="qn-tip">📊 Waste Data</span>📊</button>
-  <button class="qn-item" onclick="location.href='#states'" title="States"><span class="qn-tip">🗺️ States</span>🗺️</button>
-  <button class="qn-item" onclick="location.href='#recycling'" title="Recycling"><span class="qn-tip">♻️ Recycling</span>♻️</button>
-  <button class="qn-item" onclick="location.href='#policy'" title="Policy"><span class="qn-tip">📝 Policy</span>📝</button>
-  <button class="qn-item" onclick="location.href='#global'" title="Global"><span class="qn-tip">🌍 Global</span>🌍</button>
-  <button class="qn-item" onclick="location.href='#games'" title="Games"><span class="qn-tip">🎮 Games</span>🎮</button>
-  <button class="qn-item" onclick="location.href='#quiz'" title="Quiz"><span class="qn-tip">🧠 Quiz</span>🧠</button>
-</div>
-
 <!-- GENERIC MODAL -->
 <div class="modal-overlay" id="mainModal" onclick="closeModal(event)">
   <div class="modal-box">
@@ -425,6 +406,9 @@ a.hl:hover{color:var(--a2);border-bottom-color:var(--a2)}
 </div>
 
 <!-- KEY STATS -->
+<div class="section-note" style="max-width:1020px;margin:0 auto 2.2rem;padding:0 3rem">
+  Official figures in the stats row come from CPCB, PIB and OECD sources. Hover text distinguishes reported figures from interpretive context.
+</div>
 <div class="stat-row reveal">
   <div class="stat-card" tabindex="0" role="button" onclick="showStatDetail('waste')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showStatDetail('waste')}" data-tip="Click to see the full explanation">
     <div class="stat-num" data-count="4.14" data-sfx=" Mt">0</div>
